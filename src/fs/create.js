@@ -17,7 +17,7 @@ const create = async () => {
         await fs.writeFile(filePath, fileContent);
         console.log('File created and written successfully!');
     } catch (err) {
-        console.log(err);
+        console.err(err);
     }
 };
 
@@ -28,6 +28,9 @@ async function doFileExist (path) {
         await fs.access(path, fs.constants.F_OK);
         return true;
     } catch (err) {
-        return false;
+        if (err.code === 'ENOENT') {
+            return false;
+        }
+        throw err;
     }
 }

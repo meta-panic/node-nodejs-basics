@@ -35,6 +35,9 @@ async function doFileExist (path) {
         await fs.access(path);
         return true;
     } catch (err) {
-        return false;
+        if (err.code === 'ENOENT') {
+            return false;
+        }
+        throw err;
     }
 }

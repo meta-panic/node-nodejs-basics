@@ -20,7 +20,7 @@ const copy = async () => {
 
         await copyFolder(sourceDirectoryPath, destinationDirectoryPath);
     } catch (err) {
-        console.log(err);
+        console.err(err);
     }
 };
 
@@ -32,7 +32,7 @@ const doFolderExist = async (path) => {
         if (err.code === 'ENOENT') {
             return false
         }
-        return false;
+        throw err;
     }
 }
 

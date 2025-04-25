@@ -14,7 +14,7 @@ const read = async () => {
         };
         console.log(await fs.readFile(filePath, { encoding: "utf8" }));
     } catch (err) {
-        console.log(err);
+        console.err(err);
     }
 };
 
@@ -25,6 +25,9 @@ async function doFileExist (path) {
         await fs.access(path, fs.constants.F_OK);
         return true;
     } catch (err) {
-        return false;
+        if (err.code === 'ENOENT') {
+            return false;
+        }
+        throw err;
     }
 }
