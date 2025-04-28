@@ -2,6 +2,7 @@ import * as fs from 'node:fs/promises'
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -17,7 +18,7 @@ const create = async () => {
         await fs.writeFile(filePath, fileContent);
         console.log('File created and written successfully!');
     } catch (err) {
-        console.err(err);
+        console.error(err);
     }
 };
 

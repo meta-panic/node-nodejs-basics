@@ -14,7 +14,7 @@ const list = async () => {
         };
         console.log(await getAllFilenamesAt(folderPath));
     } catch (err) {
-        console.err(err);
+        console.error(err);
     }
 };
 

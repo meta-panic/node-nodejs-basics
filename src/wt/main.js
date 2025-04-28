@@ -32,7 +32,7 @@ const performCalculations = async () => {
             workersResults.forEach((result) => {
                 output.push({
                     status: result.status === "fulfilled" ? "resolved" : "error",
-                    data: result.value 
+                    data: result.value ?? null
                 })
             })
             console.log(output);

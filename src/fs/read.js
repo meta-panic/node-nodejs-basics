@@ -14,7 +14,7 @@ const read = async () => {
         };
         console.log(await fs.readFile(filePath, { encoding: "utf8" }));
     } catch (err) {
-        console.err(err);
+        console.error(err);
     }
 };
 

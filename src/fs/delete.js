@@ -15,7 +15,7 @@ const remove = async () => {
 
         await fs.rm(filePath);
     } catch (err) {
-        console.err(err);
+        console.error(err);
     }
 };
 

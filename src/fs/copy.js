@@ -20,7 +20,7 @@ const copy = async () => {
 
         await copyFolder(sourceDirectoryPath, destinationDirectoryPath);
     } catch (err) {
-        console.err(err);
+        console.error(err);
     }
 };
 
